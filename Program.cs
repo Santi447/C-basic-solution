@@ -18,6 +18,20 @@
 
             Differance = highNumber - lowNumber;
             Console.WriteLine($"{Differance} is the differance between the low and high number");
+
+            while (lowNumber < 0)
+            {
+                Console.Write("Enter a low number That is positive: ");
+                lowNumber = Convert.ToInt32(Console.ReadLine());
+            }
+            while (highNumber < lowNumber)
+            {
+                Console.Write("Enter a number greater then the low number: ");
+                highNumber = Convert.ToInt32(Console.ReadLine());
+            } 
+
+            
         }
+        
     }
 }
