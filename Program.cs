@@ -28,9 +28,22 @@
             {
                 Console.Write("Enter a number greater then the low number: ");
                 highNumber = Convert.ToInt32(Console.ReadLine());
-            } 
+            }
 
-            
+            int index = 0;
+            int[] array = new int[Differance - 1];
+            for (int i = lowNumber + 1; i < highNumber; i++)
+            {
+                array[index] = i;
+                index++;
+            }
+
+            foreach (int i in array)
+            {
+                Console.WriteLine(i);
+            }
+
+
         }
         
     }
