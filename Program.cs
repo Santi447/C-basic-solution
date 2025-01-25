@@ -1,4 +1,6 @@
-﻿namespace C__basic_solution
+﻿using System.IO;
+
+namespace C__basic_solution
 {
     internal class Program
     {
@@ -37,11 +39,15 @@
                 array[index] = i;
                 index++;
             }
+            Array.Sort(array, (x, y) => y.CompareTo(x));
 
-            foreach (int i in array)
-            {
-                Console.WriteLine(i);
-            }
+            string filePath = "numbers.txt";
+
+            File.WriteAllLines(filePath,array.Select(x => x.ToString()));
+
+
+
+
 
 
         }
