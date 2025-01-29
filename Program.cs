@@ -93,6 +93,7 @@ namespace C__basic_solution
             {
               if (PrimeNumberValidator(i))
                 {
+                   Console.WriteLine("The Prime numbers from the numbers in the final are");
                     Console.WriteLine(i); 
                 }
 
