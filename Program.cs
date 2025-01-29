@@ -1,9 +1,31 @@
 ﻿using System.IO;
+using System.Security.Cryptography.X509Certificates;
+using System.Threading.Channels;
 
 namespace C__basic_solution
 {
     internal class Program
     {
+
+        public static bool PrimeNumberValidator(int number)
+        {
+            if(number < 1) return false;
+            if (number == 2) return true;
+            if(number %2 == 0 && number > 2) return false;
+            if (number %2 == 1 && number > 2)
+            {
+                int sqr = Convert.ToInt32(Math.Sqrt(number));
+                
+                for(int i = 3; i <= sqr; i++)
+                {
+                    if (number % i == 0) return false;                 
+
+                    
+                }
+            }
+            return true;
+
+        }
         static void Main(string[] args)
         {
             int lowNumber;
@@ -44,6 +66,41 @@ namespace C__basic_solution
             string filePath = "numbers.txt";
 
             File.WriteAllLines(filePath,array.Select(x => x.ToString()));
+
+
+            int total=0;
+            string[] fileContents = File.ReadAllLines(filePath);
+           
+            for (int i = 0; i < fileContents.Length; i++)
+            {
+
+                total += Convert.ToInt32(fileContents[i]);
+
+            }
+
+            Console.WriteLine($"The sum of numbers in file: {total}");
+            List<double> numbers = new List<double>();
+            foreach (string content in fileContents)
+            {
+                if (double.TryParse(content, out double number))
+                {
+                    numbers.Add(number);
+                }
+            }
+
+
+            foreach (int i in numbers)
+            {
+              if (PrimeNumberValidator(i))
+                {
+                    Console.WriteLine(i); 
+                }
+
+            }
+
+           
+
+
 
 
 
